@@ -1,136 +1,419 @@
 <!DOCTYPE html>
 <html>
 <head> 
-        <link rel="stylesheet" href="css/main_page.css">
-       <!-- The document title and other information used by search engines.-->
-       <!--
-          <form action="http://google.com">
-              <input type="submit" value="Go to Google" />
-          </form>  
-        -->
-</head> 
-<body>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<section id="nav" class="header">
-  <ul>
-    <li class="white left nav_pad">CS4K</li>
-    <li><a href="#faq">Faq</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#volunteers">Volunteers</a></li>
-    <li><a href="#misson_statement">Misson Statement</a></li>
-  </ul>
-</section>
+<link rel="stylesheet" href="css/animate.css">
 
-<section id="page1" class="landing_page">
-  <a id="Landing Page"></a>
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+   	<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
+   	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   	<link rel="stylesheet" href="css/contact.css">
 
-	<!-- Slideshow container -->
-	<div class="slideshow-container">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main_page.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-		<!-- Full-width images with number and caption text -->
-		<div class="mySlides fade">
-			<div class="numbertext">1 / 3</div>
-			<IMG class = "slideshow_image" src = "media/Slideshow1.jpg" alt="CS4K volunteers working with students">
-			<div class="text">CS4K volunteers working with students</div>
-		</div>
-
-		<div class="mySlides fade">
-			<div class="numbertext">2 / 3</div>
-			<IMG class = "slideshow_image" src = "media/Slideshow2.jpg" alt="Students working with Dash and Dot">
-			<div class="text">Students working with Dash and Dot</div>
-		</div>
-
-		<div class="mySlides fade">
-			<div class="numbertext">3 / 3</div>
-			<IMG class = "slideshow_image" src = "media/Slideshow3.jpg" alt="Students programming with Scratch">
-			<div class="text">Students programming with Scratch</div>
-		</div>
-
-		<!-- Next and previous buttons -->
-		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-		<a class="next" onclick="plusSlides(1)">&#10095;</a>
-	</div>
-	<br>
-
-	<!-- The dots/circles -->
-	<div style="text-align:center">
-		<span class="dot" onclick="currentSlide(1)"></span> 
-		<span class="dot" onclick="currentSlide(2)"></span> 
-		<span class="dot" onclick="currentSlide(3)"></span> 
-	</div>
-</section>
-
-<section id="page2" class= "mission_statement">
-    <a id="misson_statement"</a>
-		
-		<section class  = "block_text">
-		
-			<h1 class = block_title>
-				Mission Statement
-			</h1>
-			
-			<p>
-				Computer Science for Kids (CS4K) is a student-run community service organization that provides UC Davis students the opportunity to apply their computer science knowledge and experience in the classrooms.
-			</p>
-				
-			<p>
-				In CS4K, UC Davis volunteers are passionate about computer science and teaching. Our volunteers visit different schools in the Davis and Woodland communities, where they introduce the fundamentals of computer science to elementary and middle school students through programming tools, such as Scratch MIT, Swift Playgrounds, and more.
-			</p>
-				
-			<p>
-				CS4K strives to give every child an opportunity to learn computer science and to spark their interest in the field as a possible career path.
-			</p>
-		</section>
-		
-		<IMG class = "center_image" src = "media/MissionStatement (3).jpg" >
-		
-</section>
-
-<section id="page3" class= "volunteer">
-	<a id="volunteers" class="smooth"></a>
-	<h1 class = block_title>
-		Volunteer
-	</h1>
-    volunteers content goes here.
-</section>
-
-<section id="page4" class= "team">
-	<a id="team"></a>
-	<h1 class = block_title>
-		Team
-	</h1>
-    Team content goes here.
-</section>
-
-<section id="page5" class = "Faq">
-	<a id="faq"></a>
-	<h1 class = block_title>
-		Faqs
-	</h1>
-    Faq content goes here.
-</section>
-
-<section id="footer" class="Footer">
-     <ul>
-         <li><a href="#about">About</a></li>
-         <li><a href="#portfolio">Portfolio</a></li>
-         <li><a href="#contact">Contact</a></li>
-     </ul>
-</section>
-
-<script src="js/main.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/jquery.smooth-scroll.js"></script>
 <script>
-$('.smooth').on('click', function() {
-    $.smoothScroll({
-        scrollElement: $('body'),
-        scrollTarget: '#' + this.id
-    });
-    
-    return false;
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
 });
+
+function resizeHeaderOnScroll() {
+  const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+  shrinkOn = 10,
+  headerEl = document.getElementById('navbar');
+  var logoChange =  document.getElementById('brand');
+  
+  if (distanceY > shrinkOn) {
+    headerEl.classList.add("smaller");
+    //logoChange.style.height = '55px';
+  } else {
+    headerEl.classList.remove("smaller");
+    //logoChange.style.height = '130px';
+  }
+}
+
+window.addEventListener('scroll', resizeHeaderOnScroll);
+
 </script>
+
+</head>
+<body style="background-color: white;">
+
+<nav class="navbar navbar-inverse sticky" id="navbar" style="border: 0px; margin-bottom: 50px; position: fixed">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" style="top: 12px;">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" id="brand" >CS4K UC Davis</a>
+        </div>
+        <div class="collapse navbar-collapse" style="height: 1px;">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#misson_statement">Misson</a></li>
+                <li><a href="#volunteers">Volunteers</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#faq">Faq</a></li>
+                <li><a href="#Contact_Us">Contact</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!--
+<header id="js-header">
+      <div class="container-top clearfix">
+          <h1 id="logo"><img id = "cs4klogo" src = "james-edited-photos/logo.png" style = "max-height:7.5vw"></h1>
+          <nav class="collapse navbar-collapse">
+			  </li><a href="#misson_statement">Misson</a></li>
+			  </li><a href="#volunteers">Volunteers</a></li>
+			  </li><a href="#team">Team</a></li>
+			  </li><a href="#faq">FAQ</a></li>
+			  </li><a href="#Contact_Us">Contact</a></li>
+          </nav>
+      </div>
+  </header>
+  -->
+
+
+
+<div class = "main-pic">
+    <img src = "james-edited-photos/test2.png" style="width:100%">
+</div>
+
+
+<div class = "main">
+	  <a id="misson_statement"></a>
+	  <div class = "empty-block">	  	
+	  	</div>
+		<div style="clear: both;"></div>
+	  <section id="page2" class="mission_statement clear">
+  		<h1 class = block_title>
+  			Mission Statement
+  		</h1>
+  		<div class = "full-padded">
+	  		<p>
+	  			    Computer Science for Kids (CS4K) is a student-run community service organization that provides UC Davis students the opportunity to apply their computer science knowledge and experience in the classrooms.
+	  				CS4K strives to give every child an opportunity to learn computer science and to spark their interest in the field as a possible career path.
+	  		</p>
+	  	</div>
+
+	  <div class="container">	
+	  	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+	  		<ol class="carousel-indicators">
+	  			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	  			<li data-target="#myCarousel" data-slide-to="1"></li>
+	  			<li data-target="#myCarousel" data-slide-to="2"></li>
+	  		</ol>
+
+	  		<div class="carousel-inner">
+	  			<div class="item active">
+	  				<img src="james-edited-photos/slideshow1.png" alt="Los Angeles" style="width:100%;">
+	  			</div>
+
+	  			<div class="item">
+	  				<img src="james-edited-photos/slideshow2.png" alt="Chicago" style="width:100%;">
+	  			</div>
+
+	  			<div class="item">
+	  				<img src="james-edited-photos/slideshow3.png" alt="New york" style="width:100%;">
+	  			</div>
+	  		</div>
+
+	  		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+	  			<span class="glyphicon glyphicon-chevron-left"></span>
+	  			<span class="sr-only">Previous</span>
+	  		</a>
+	  		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+	  			<span class="glyphicon glyphicon-chevron-right"></span>
+	  			<span class="sr-only">Next</span>
+	  		</a>
+	  	</div>
+	  </div>
+	  </section>
+
+	  <a id="volunteers" class="smooth"></a>
+	  <div id="page3" class= "resources">
+	  	<div class = "empty-block">	  	
+	  	</div>
+		<div style="clear: both;"></div>
+	  	<h1 class = block_title>
+	  		Volunteer
+	  	</h1>
+  		<div class = "full-padded">
+	  		<p>
+	  			In CS4K, UC Davis volunteers are passionate about computer science and teaching. Our volunteers visit different schools in the Davis and Woodland communities, where they introduce the fundamentals of computer science to elementary and middle school students through programming tools, such as Scratch MIT, Swift Playgrounds, and more.
+	  		</p>
+	  		
+	  	</div>
+	  	<section class  = "float-left half-padded-left">
+	  		<h1 class = block_title>
+	  			Join us!
+	  		</h1>
+	  		<p>
+	  			We are currently looking for volunteers for Spring Quarter 2018.
+	  		</p>
+		  	<a href="https://docs.google.com/document/d/1mlIBPf-zZWL_IvytKeo9KVcojxGFt78PQ1XQGmgS-d8/edit" class="btn btn-info" role="button" target="_blank">Apply</a>
+		  	<br><br>
+		  	<a href="https://docs.google.com/document/d/1mlIBPf-zZWL_IvytKeo9KVcojxGFt78PQ1XQGmgS-d8/edit" class="btn btn-info" role="button" target="_blank">Resources</a>
+	  	</section>
+	  		<img class = "float-left half-padded-right" src = "james-edited-photos/volunteers.png">
+	  </div>
+	  <br>
+	  <div style="clear: both;"></div>
+	  <section id="page4" class= "team">
+	  	<a id="team"></a>
+	  	<div class = "empty-block">	  	
+	  	</div>
+		<div style="clear: both;"></div>
+	  	<h1 class = block_title>
+	  		Team
+	  	</h1>
+	  	<div id="Team_photos">
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Karen-Chan.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Karen Chen<br></strong>
+	  				<span style="color: grey;">Founder/President</span>
+	  			</p>
+	  		</div>
+	  		<div style="clear: both;"></div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Carson-Dacus1.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Carson Dacus<br></strong>
+	  				<span style="color: grey;">Community Relations Director</span>
+	  			</p>
+	  		</div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Judy-Cheng.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Judy Cheng<br></strong>
+	  				<span style="color: grey;">Community Relations Director</span>
+	  			</p>
+	  		</div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Hannah-Fong.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Hannah Fong<br></strong>
+	  				<span style="color: grey;">Marketing & Public Relations Chair</span>
+	  			</p>
+	  		</div>
+            <div class = "board_photo">
+                <img src = "officer-pics/Jasmine-Talavera1.jpg" class="officer_pic">
+                <p style="text-align: center;">
+                    <strong>Jasmine-Celine Talavera<br></strong>
+                    <span style="color: grey;">Design Chair</span>
+                </p>
+            </div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Donald-Nguyen.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Donald Nguyen<br></strong>
+	  				<span style="color: grey;">Volunteer Relations          </span>
+	  			</p>
+	  		</div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Giulia-Lubet.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Giulia Lubet<br></strong>
+	  				<span style="color: grey;">Volunteer Relations</span>
+	  			</p>
+	  		</div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Jingwen-Low.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Jingwen Low<br></strong>
+	  				<span style="color: grey;">Finance Chair</span>
+	  			</p>
+	  		</div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Alan-Zambrano.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Alan Zambrano<br></strong>
+	  				<span style="color: grey;">Technology Chair</span>
+	  			</p>
+	  		</div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/Eric-Lam.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>Eric Lam<br></strong>
+	  				<span style="color: grey;">Technology Chair</span>
+	  			</p>
+	  		</div>
+	  		<div class = "board_photo">
+	  			<img src = "officer-pics/James-Chen.jpg" class="officer_pic" style="max-width:100%; height:auto">
+	  			<p style="text-align: center;">
+	  				<strong>James Chen<br></strong>
+	  				<span style="color: grey;">Technology Chair</span>
+	  			</p>
+	  		</div>
+	  	</div>
+	  </section>
+
+	  <section id="page5" class = "Faq">
+	  	<a id="faq"></a>
+	  	<div class = "empty-block">	  	
+	  	</div>
+		<div style="clear: both;"></div>
+	  	<h1 class = "block_title">FAQ</h1>
+	  	<br><br>
+	  		<img class = "float-left faq-left" src = "james-edited-photos/Faqs_Penguin.png">
+	  		<div class="float-right faq-right">
+
+	  			<p class="accordion">Q1. Where do you offer volunteer services?</p>
+	  			<div class="panel">A. We currently volunteer at 5 locations in Yolo County: St. James, Woodland Library, Pioneer Elementary, Something else. <br>
+	  			<br>But we are always looking for new locations to collaborate with.</br.></div>
+
+	  			<p class="accordion">Q2. Who can volunteer?</p>
+	  			<div class="panel">A. If you would like to join us, please fill out the forms blah blah.</div>
+	  			
+	  			<p class="accordion">Q3. Is it possible to get units for volunteering?</p>
+	  			<div class="panel">A. Yes!</div>
+
+	  			<p class="accordion">Q3. Question?</p>
+	  			<div class="panel">A. Answer.</div>
+	  			
+	  			<p class="accordion">Q5. Who funds this program?</p>
+	  			<div class="panel">A. We are currently a student-lead organization, and get most of our fundings through grants.<br>
+	  			If you would like to donate to us, please contact us below for more information.</div>
+	  	    </div>
+	  	</section>
+
+
+<div style="clear: both;"></div>
+<a id="Contact_Us"></a>
+<div class = "empty-block">	  	
+  </div>
+<div style="clear: both;"></div>
+<h1 class = "block_title">Contact</h1>
+<div class="row">
+<div class="col-sm-6 col-sm-offset-3">
+    <div class="well" style="margin-top: 10%;">
+    <h3>Send us a message</h3>
+    <form role="form" id="contactForm" data-toggle="validator" class="shake">
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="name" class="h4">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="email" class="h4">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message" class="h4 ">Message</label>
+            <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+            <div class="help-block with-errors"></div>
+        </div>
+        <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+        <div id="msgSubmit" class="h3 text-center hidden"></div>
+        <div class="clearfix"></div>
+    </form>
+    </div>
+</div>
+</div>
+
+
+	
+	<div class="clear">
+        <footer>
+            <section>
+                <h3> </h3>
+
+                	<div class = "contact"> 
+                       <a href="mailto:ucd.cs4k@gmail.com"><img src="james-edited-photos/mail.png" draggable="false" align="right"></a>               	
+                        <a href="https://www.facebook.com/ucd.cs4k/"> <img src="james-edited-photos/fb.png" draggable="false" align="right"></i></a>
+                     
+                   	</div>
+                   	  <p> © CS4K 2017 </p>
+            </section>
+        </footer>
+    </div>
+    </div>
+
+
+<!--            
+<div class="container">
+    <div class="panel-footer">Panel Footer</div>
+</div>
+-->
+
+<script type="text/javascript" src="js/validator.min.js"></script>
+<script type="text/javascript" src="js/form-scripts.js"></script>
+
+
+
+<script>
+	document.addEventListener("DOMContentLoaded", function(event) {
+
+
+		var acc = document.getElementsByClassName("accordion");
+		var panel = document.getElementsByClassName('panel');
+
+		for (var i = 0; i < acc.length; i++) {
+			acc[i].onclick = function() {
+				var setClasses = !this.classList.contains('active');
+				setClass(acc, 'active', 'remove');
+				setClass(panel, 'show', 'remove');
+
+				if (setClasses) {
+					this.classList.toggle("active");
+					this.nextElementSibling.classList.toggle("show");
+				}
+			}
+		}
+
+		function setClass(els, className, fnName) {
+			for (var i = 0; i < els.length; i++) {
+				els[i].classList[fnName](className);
+			}
+		}
+
+	});
+
+	$(function() {
+		$('.nav a').on('click', function(){
+			if($('.navbar-toggle').css('display') !='none'){
+				$(".navbar-toggle").trigger( "click" );
+			}
+		});
+	});
+
+</script>
+
 
 </body>
 </html>
